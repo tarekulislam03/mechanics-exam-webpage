@@ -1,0 +1,332 @@
+
+<style>
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:0}
+.tab-btn{padding:7px 13px;font-size:13px;font-weight:500;border:0.5px solid var(--color-border-secondary);border-bottom:none;border-radius:8px 8px 0 0;background:var(--color-background-secondary);color:var(--color-text-secondary);cursor:pointer;transition:background .15s,color .15s}
+.tab-btn.active{background:var(--color-background-primary);color:var(--color-text-primary);border-color:var(--color-border-primary)}
+.tab-content{display:none;border:0.5px solid var(--color-border-primary);border-radius:0 8px 8px 8px;padding:20px 22px;background:var(--color-background-primary)}
+.tab-content.active{display:block}
+h3{font-size:15px;font-weight:500;margin:18px 0 8px;color:var(--color-text-primary)}
+h3:first-child{margin-top:0}
+.pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:500;margin:3px 3px 3px 0}
+.pill-red{background:#FCEBEB;color:#791F1F}
+.pill-amber{background:#FAEEDA;color:#633806}
+.pill-blue{background:#E6F1FB;color:#0C447C}
+.pill-teal{background:#E1F5EE;color:#085041}
+.q-list{list-style:none;padding:0;margin:0}
+.q-list li{padding:8px 12px;border-left:3px solid var(--color-border-info);margin-bottom:8px;font-size:13.5px;background:var(--color-background-secondary);border-radius:0 6px 6px 0;color:var(--color-text-primary)}
+.formula-box{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:8px;padding:11px 15px;margin:7px 0;font-family:var(--font-mono);font-size:13px;color:var(--color-text-primary)}
+.formula-label{font-family:var(--font-sans);font-size:12px;color:var(--color-text-secondary);margin-bottom:3px;font-weight:500;margin-top:10px}
+.num-box{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:8px;padding:14px 16px;margin:10px 0}
+.num-box .problem{font-size:13.5px;color:var(--color-text-primary);margin-bottom:8px;font-weight:500}
+.num-box .solution{font-size:13px;color:var(--color-text-secondary);line-height:1.7}
+.sol-step{padding:4px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.sol-step:last-child{border-bottom:none}
+.ans-btn{font-size:12px;padding:4px 10px;border:0.5px solid var(--color-border-secondary);border-radius:6px;background:transparent;color:var(--color-text-secondary);cursor:pointer;margin-top:6px}
+.answer{display:none;margin-top:8px;padding:10px;background:var(--color-background-primary);border-radius:6px;font-size:13px;color:var(--color-text-primary);line-height:1.7}
+.concept-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:13.5px}
+.concept-row:last-child{border-bottom:none}
+.concept-term{font-weight:500;min-width:170px;color:var(--color-text-primary);flex-shrink:0}
+.concept-def{color:var(--color-text-secondary);line-height:1.6}
+.tbl{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+.tbl th{padding:8px 10px;background:var(--color-background-secondary);color:var(--color-text-secondary);font-weight:500;text-align:left;border-bottom:0.5px solid var(--color-border-secondary)}
+.tbl td{padding:7px 10px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-primary);font-family:var(--font-mono);font-size:12.5px}
+.tbl td:first-child{font-family:var(--font-sans);font-weight:500;color:var(--color-text-primary)}
+.tbl tr:last-child td{border-bottom:none}
+.warn-box{background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:8px;padding:10px 14px;font-size:13px;color:#412402;margin:10px 0}
+</style>
+
+<h2 style="position:absolute;left:-9999px">Centre of Gravity, Centroid and Moment of Inertia — Engineering Mechanics Study Guide</h2>
+
+<div style="padding:4px 0 14px">
+  <span style="font-size:14px;font-weight:500;color:var(--color-text-primary)">Centre of Gravity, Centroid &amp; Moment of Inertia</span>
+  <span style="font-size:13px;color:var(--color-text-secondary);margin-left:8px">Mechanics — Engineering</span>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('tq')">Top Questions</button>
+  <button class="tab-btn" onclick="showTab('tc')">Concepts</button>
+  <button class="tab-btn" onclick="showTab('tf')">Formulas</button>
+  <button class="tab-btn" onclick="showTab('ts')">Standard Sections</button>
+  <button class="tab-btn" onclick="showTab('tn')">Numericals</button>
+  <button class="tab-btn" onclick="showTab('tm')">Mass MI</button>
+</div>
+
+<!-- TAB 1: Top Questions -->
+<div class="tab-content active" id="tq">
+  <h3>Most asked by teachers</h3>
+  <div style="margin-bottom:8px">
+    <span class="pill pill-red">Very Frequent</span>
+    <span class="pill pill-amber">Frequently Asked</span>
+    <span class="pill pill-blue">Conceptual</span>
+    <span class="pill pill-teal">Derivation</span>
+  </div>
+  <ul class="q-list">
+    <li><span class="pill pill-red">Very Frequent</span> Find the centroid of a composite section (T, I, L, or channel section).</li>
+    <li><span class="pill pill-red">Very Frequent</span> Find the moment of inertia of a composite section about centroidal axes using the parallel axis theorem.</li>
+    <li><span class="pill pill-red">Very Frequent</span> State and prove the Parallel Axis Theorem (PAT).</li>
+    <li><span class="pill pill-red">Very Frequent</span> State and prove the Perpendicular Axis Theorem (PAT for polar MI).</li>
+    <li><span class="pill pill-amber">Frequently Asked</span> Derive the centroid of a triangle from first principles.</li>
+    <li><span class="pill pill-amber">Frequently Asked</span> Derive the MI of a rectangle about its centroidal axis from first principles.</li>
+    <li><span class="pill pill-amber">Frequently Asked</span> Find centroid of a semicircle / quarter circle from first principles.</li>
+    <li><span class="pill pill-amber">Frequently Asked</span> Explain the concept of Centre of Gravity vs Centroid. When are they the same?</li>
+    <li><span class="pill pill-amber">Frequently Asked</span> Find MI of a triangle about base and centroidal axis.</li>
+    <li><span class="pill pill-blue">Conceptual</span> What is the physical significance of moment of inertia? How does it differ from second moment of area?</li>
+    <li><span class="pill pill-blue">Conceptual</span> What is radius of gyration? What is its significance in structural design?</li>
+    <li><span class="pill pill-teal">Derivation</span> Derive the MI of a circle about its diameter from first principles.</li>
+    <li><span class="pill pill-teal">Derivation</span> Derive centroid of a semicircular arc and semicircular area.</li>
+    <li><span class="pill pill-blue">Conceptual</span> Define mass moment of inertia. How is it different from area moment of inertia?</li>
+  </ul>
+</div>
+
+<!-- TAB 2: Concepts -->
+<div class="tab-content" id="tc">
+  <h3>Core concepts</h3>
+  <div>
+    <div class="concept-row">
+      <div class="concept-term">Centre of Gravity (CG)</div>
+      <div class="concept-def">The point where the entire weight of a body is assumed to act. It is a physical point that depends on the gravitational field. For uniform gravity, CG = centroid.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Centroid</div>
+      <div class="concept-def">A purely geometric property — the mean position of all points of a figure. For areas, ̄x = ΣAx / ΣA and ȳ = ΣAy / ΣA. Does NOT depend on gravity.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">CG vs Centroid</div>
+      <div class="concept-def">CG = centroid only when: (1) body is homogeneous (uniform density), and (2) gravitational field is uniform. Otherwise they differ.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">First Moment of Area</div>
+      <div class="concept-def">Q = ∫y dA about X-axis; Q = ∫x dA about Y-axis. Used to find centroid. Units: m³ or mm³.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Area Moment of Inertia (Second Moment of Area)</div>
+      <div class="concept-def">I = ∫y² dA. Measures resistance to bending/rotation. Higher I = stiffer beam. Units: m⁴ or mm⁴. NOT the same as mass MI.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Parallel Axis Theorem</div>
+      <div class="concept-def">I_AB = I_G + A·d². The MI about any axis = MI about parallel centroidal axis + Area × (distance between axes)². d is measured from centroid to the new axis.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Perpendicular Axis Theorem</div>
+      <div class="concept-def">For a lamina in XY plane: I_z = I_x + I_y. The polar MI = sum of MIs about two perpendicular axes in the plane. Applies ONLY to 2D planar figures.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Radius of Gyration (k)</div>
+      <div class="concept-def">k = √(I/A). The distance from the axis at which the entire area could be concentrated to give the same MI. Used in column buckling (slenderness ratio = L/k).</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Composite Section Method</div>
+      <div class="concept-def">Break complex shape into simple shapes (rectangles, triangles, circles). Treat holes/cutouts as negative areas. Find centroid then use PAT for total MI.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Axis of Symmetry</div>
+      <div class="concept-def">The centroid always lies on any axis of symmetry. For doubly-symmetric sections (rectangle, circle, I-section), centroid is at the geometric center.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 3: Formulas -->
+<div class="tab-content" id="tf">
+  <h3>Centroid formulas</h3>
+  <div class="formula-label">Centroid of composite area (x̄, ȳ)</div>
+  <div class="formula-box">x̄ = (ΣAᵢxᵢ) / ΣAᵢ &nbsp;&nbsp; ȳ = (ΣAᵢyᵢ) / ΣAᵢ</div>
+  <div class="formula-label">Centroid from first principles</div>
+  <div class="formula-box">x̄ = (1/A) ∫x dA &nbsp;&nbsp; ȳ = (1/A) ∫y dA</div>
+  <div class="formula-label">Centroid of triangle (from base)</div>
+  <div class="formula-box">ȳ = h/3 &nbsp;(from base) &nbsp;&nbsp; ȳ = 2h/3 &nbsp;(from apex)</div>
+  <div class="formula-label">Centroid of semicircle (from diameter)</div>
+  <div class="formula-box">ȳ = 4R / 3π ≈ 0.424R</div>
+  <div class="formula-label">Centroid of quarter circle</div>
+  <div class="formula-box">x̄ = ȳ = 4R / 3π</div>
+
+  <h3>Moment of inertia formulas</h3>
+  <div class="formula-label">From first principles</div>
+  <div class="formula-box">I_xx = ∫y² dA &nbsp;&nbsp; I_yy = ∫x² dA</div>
+  <div class="formula-label">Parallel Axis Theorem</div>
+  <div class="formula-box">I_AB = I_G + A · d²</div>
+  <div class="formula-label">Perpendicular Axis Theorem (planar bodies only)</div>
+  <div class="formula-box">I_z = I_x + I_y &nbsp;&nbsp;(Polar MI = J = I_xx + I_yy)</div>
+  <div class="formula-label">Radius of gyration</div>
+  <div class="formula-box">k = √(I / A) &nbsp;&nbsp; or &nbsp;&nbsp; I = A · k²</div>
+
+  <h3>Steps for composite MI</h3>
+  <div style="font-size:13.5px;color:var(--color-text-secondary);line-height:1.9;padding:10px 14px;background:var(--color-background-secondary);border-radius:8px">
+    1. Divide into simple shapes (label cutouts negative)<br>
+    2. Find centroid of each shape (x̄ᵢ, ȳᵢ) from reference axis<br>
+    3. Find ȳ of composite = ΣAᵢȳᵢ / ΣAᵢ<br>
+    4. Find I_G of each shape about its own centroidal axis<br>
+    5. Apply PAT: I_total = Σ(I_Gᵢ + Aᵢ·dᵢ²) where dᵢ = ȳᵢ − ȳ
+  </div>
+
+  <div class="warn-box">
+    Note: In PAT, d is always from the CENTROID of each sub-shape to the CENTROIDAL AXIS of the composite — not from the base line. This is the most common exam mistake.
+  </div>
+</div>
+
+<!-- TAB 4: Standard Sections Table -->
+<div class="tab-content" id="ts">
+  <h3>Centroid of standard shapes</h3>
+  <table class="tbl">
+    <tr><th>Shape</th><th>Centroid x̄</th><th>Centroid ȳ (from base)</th><th>Area</th></tr>
+    <tr><td>Rectangle (b×h)</td><td>b/2</td><td>h/2</td><td>bh</td></tr>
+    <tr><td>Triangle (base b, height h)</td><td>b/3 from left</td><td>h/3 from base</td><td>bh/2</td></tr>
+    <tr><td>Circle (radius R)</td><td>0 (center)</td><td>0 (center)</td><td>πR²</td></tr>
+    <tr><td>Semicircle (radius R)</td><td>0</td><td>4R/3π</td><td>πR²/2</td></tr>
+    <tr><td>Quarter circle (R)</td><td>4R/3π</td><td>4R/3π</td><td>πR²/4</td></tr>
+  </table>
+
+  <h3>MI of standard sections about centroidal axes</h3>
+  <table class="tbl">
+    <tr><th>Section</th><th>I_xx (about centroid)</th><th>I_xx (about base)</th></tr>
+    <tr><td>Rectangle (b×d)</td><td>bd³/12</td><td>bd³/3</td></tr>
+    <tr><td>Triangle (b, h)</td><td>bh³/36</td><td>bh³/12</td></tr>
+    <tr><td>Circle (R)</td><td>πR⁴/4 = πD⁴/64</td><td>—</td></tr>
+    <tr><td>Semicircle (R)</td><td>0.11R⁴</td><td>πR⁴/8</td></tr>
+    <tr><td>Hollow rectangle</td><td>(BD³ − bd³)/12</td><td>—</td></tr>
+    <tr><td>Hollow circle</td><td>π(D⁴−d⁴)/64</td><td>—</td></tr>
+  </table>
+
+  <h3>Polar MI (J) of standard sections</h3>
+  <table class="tbl">
+    <tr><th>Section</th><th>J = I_xx + I_yy</th></tr>
+    <tr><td>Circle (R)</td><td>πR⁴/2 = πD⁴/32</td></tr>
+    <tr><td>Hollow circle (D, d)</td><td>π(D⁴−d⁴)/32</td></tr>
+    <tr><td>Rectangle (b×d)</td><td>bd(b²+d²)/12</td></tr>
+  </table>
+</div>
+
+<!-- TAB 5: Numericals -->
+<div class="tab-content" id="tn">
+  <h3>Solved example problems</h3>
+
+  <div class="num-box">
+    <div class="problem">Q1. Find the centroid of a T-section: Flange 100mm × 20mm on top, Web 20mm × 80mm below.</div>
+    <button class="ans-btn" onclick="toggleAns(this)">Show solution ▾</button>
+    <div class="answer">
+      <div class="sol-step">Reference axis: bottom of web (bottom of section). Total height = 100 mm.</div>
+      <div class="sol-step">Flange: A₁ = 100×20 = 2000 mm², ȳ₁ = 80 + 10 = 90 mm</div>
+      <div class="sol-step">Web: A₂ = 20×80 = 1600 mm², ȳ₂ = 80/2 = 40 mm</div>
+      <div class="sol-step">ΣA = 2000 + 1600 = 3600 mm²</div>
+      <div class="sol-step">ȳ = (2000×90 + 1600×40) / 3600 = (180000 + 64000) / 3600 = 244000/3600</div>
+      <div class="sol-step"><b>ȳ = 67.78 mm from bottom</b></div>
+    </div>
+  </div>
+
+  <div class="num-box">
+    <div class="problem">Q2. Find MI of a rectangle 60mm wide × 90mm deep about centroidal X-X axis from first principles.</div>
+    <button class="ans-btn" onclick="toggleAns(this)">Show solution ▾</button>
+    <div class="answer">
+      <div class="sol-step">Take a strip of width b=60mm and thickness dy at distance y from centroid.</div>
+      <div class="sol-step">dA = b·dy = 60 dy</div>
+      <div class="sol-step">I_xx = ∫y²·dA from −d/2 to +d/2 = ∫₋₄₅⁺⁴⁵ y²·60 dy</div>
+      <div class="sol-step">= 60 · [y³/3]₋₄₅⁺⁴⁵ = 60 × (2×45³/3) = 60 × (2×91125/3)</div>
+      <div class="sol-step">= 60 × 60750 = <b>3,645,000 mm⁴ = 3.645×10⁶ mm⁴</b></div>
+      <div class="sol-step">Check using formula: bd³/12 = 60×90³/12 = 60×729000/12 = 3,645,000 mm⁴ ✓</div>
+    </div>
+  </div>
+
+  <div class="num-box">
+    <div class="problem">Q3. Find MI of the T-section from Q1 about its centroidal X-X axis. (ȳ = 67.78 mm from bottom)</div>
+    <button class="ans-btn" onclick="toggleAns(this)">Show solution ▾</button>
+    <div class="answer">
+      <div class="sol-step">For Flange (100×20): I_G1 = 100×20³/12 = 66,667 mm⁴; d₁ = 90−67.78 = 22.22 mm</div>
+      <div class="sol-step">I₁ = 66,667 + 2000×22.22² = 66,667 + 987,765 = 1,054,432 mm⁴</div>
+      <div class="sol-step">For Web (20×80): I_G2 = 20×80³/12 = 853,333 mm⁴; d₂ = 67.78−40 = 27.78 mm</div>
+      <div class="sol-step">I₂ = 853,333 + 1600×27.78² = 853,333 + 1,234,028 = 2,087,361 mm⁴</div>
+      <div class="sol-step"><b>I_total = 1,054,432 + 2,087,361 = 3,141,793 mm⁴ ≈ 3.14×10⁶ mm⁴</b></div>
+    </div>
+  </div>
+
+  <div class="num-box">
+    <div class="problem">Q4. Find the centroid of a semicircle of radius 50 mm from its diameter using first principles.</div>
+    <button class="ans-btn" onclick="toggleAns(this)">Show solution ▾</button>
+    <div class="answer">
+      <div class="sol-step">Consider a horizontal strip at height y, width = 2√(R²−y²), thickness dy</div>
+      <div class="sol-step">dA = 2√(R²−y²) dy</div>
+      <div class="sol-step">ȳ = (1/A)∫₀ᴿ y·2√(R²−y²) dy where A = πR²/2</div>
+      <div class="sol-step">Let u = R²−y², du = −2y dy → ∫y·√(R²−y²) dy = −(1/3)(R²−y²)^(3/2)</div>
+      <div class="sol-step">∫₀ᴿ = [−(1/3)(R²−y²)^(3/2)]₀ᴿ = 0−(−R³/3) = R³/3</div>
+      <div class="sol-step">ȳ = (2×R³/3) / (πR²/2) = (2R³/3)×(2/πR²) = <b>4R/3π</b></div>
+      <div class="sol-step">For R=50: ȳ = 4×50/(3π) = 200/9.424 = <b>21.22 mm from diameter</b></div>
+    </div>
+  </div>
+
+  <div class="num-box">
+    <div class="problem">Q5. An I-section has: Top flange 80×10, Web 10×100, Bottom flange 120×10 (all in mm). Find centroid and I_xx about centroidal axis.</div>
+    <button class="ans-btn" onclick="toggleAns(this)">Show solution ▾</button>
+    <div class="answer">
+      <div class="sol-step">Reference: bottom. Total height = 120 mm.</div>
+      <div class="sol-step">Bottom flange: A₁=120×10=1200, ȳ₁=5 mm</div>
+      <div class="sol-step">Web: A₂=10×100=1000, ȳ₂=10+50=60 mm</div>
+      <div class="sol-step">Top flange: A₃=80×10=800, ȳ₃=110+5=115 mm</div>
+      <div class="sol-step">ΣA=3000 mm²; ȳ=(1200×5+1000×60+800×115)/3000=(6000+60000+92000)/3000=158000/3000</div>
+      <div class="sol-step"><b>ȳ = 52.67 mm from bottom</b></div>
+      <div class="sol-step">I₁=120×10³/12+1200×(52.67−5)²=10000+1200×2272=2,736,400 mm⁴</div>
+      <div class="sol-step">I₂=10×100³/12+1000×(60−52.67)²=833333+1000×53.7=886,653 mm⁴</div>
+      <div class="sol-step">I₃=80×10³/12+800×(115−52.67)²=6667+800×3889=3,117,867 mm⁴</div>
+      <div class="sol-step"><b>I_total = 2,736,400+886,653+3,117,867 = 6,740,920 mm⁴ ≈ 6.74×10⁶ mm⁴</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 6: Mass Moment of Inertia -->
+<div class="tab-content" id="tm">
+  <h3>Mass moment of inertia — key concepts</h3>
+  <div>
+    <div class="concept-row">
+      <div class="concept-term">Definition</div>
+      <div class="concept-def">I = ∫r² dm. Resistance of a body to angular acceleration. Analogous to mass in linear dynamics. Units: kg·m².</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">vs Area MI</div>
+      <div class="concept-def">Area MI = ∫y² dA (geometry only, units mm⁴ or m⁴). Mass MI = ∫r² dm (involves mass distribution, units kg·m²). Area MI is used in bending theory; Mass MI is used in rotational dynamics.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Relationship</div>
+      <div class="concept-def">For a uniform lamina of density ρ and thickness t: I_mass = ρ·t · I_area. So Mass MI = density × thickness × Area MI.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Parallel Axis Theorem (mass)</div>
+      <div class="concept-def">I = I_G + M·d². Same form as area PAT but M = total mass instead of area A.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Radius of Gyration (k)</div>
+      <div class="concept-def">k = √(I/M). Distance from axis where all mass could be concentrated to give same rotational inertia. Used in dynamics and vibration analysis.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Physical significance</div>
+      <div class="concept-def">Torque τ = I·α (analogous to F = ma). A flywheel stores energy = ½Iω². Higher I = harder to start/stop rotation. Key in engine design, gears, rotating machinery.</div>
+    </div>
+  </div>
+
+  <h3>Mass MI of standard 3D bodies</h3>
+  <table class="tbl">
+    <tr><th>Body</th><th>Axis</th><th>Mass MI</th></tr>
+    <tr><td>Solid cylinder (R, M)</td><td>Central axis (Z)</td><td>MR²/2</td></tr>
+    <tr><td>Solid cylinder (R, M)</td><td>Diameter</td><td>M(R²/4 + L²/12)</td></tr>
+    <tr><td>Hollow cylinder</td><td>Central axis</td><td>M(R₁²+R₂²)/2</td></tr>
+    <tr><td>Solid sphere (R, M)</td><td>Diameter</td><td>2MR²/5</td></tr>
+    <tr><td>Thin disk (R, M)</td><td>Central axis</td><td>MR²/2</td></tr>
+    <tr><td>Thin rod (L, M)</td><td>Centre perp.</td><td>ML²/12</td></tr>
+    <tr><td>Thin rod (L, M)</td><td>End perp.</td><td>ML²/3</td></tr>
+    <tr><td>Rectangle plate (a×b)</td><td>Centroid</td><td>M(a²+b²)/12</td></tr>
+  </table>
+
+  <div class="warn-box">
+    Exam tip: For mass MI problems, always check: (1) Is the axis through the centroid/center of mass? If not, apply PAT. (2) For composite bodies, I_total = ΣI_individual (same as area MI).
+  </div>
+</div>
+
+<script>
+function showTab(id){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+function toggleAns(btn){
+  const ans=btn.nextElementSibling;
+  if(ans.style.display==='block'){ans.style.display='none';btn.textContent='Show solution ▾';}
+  else{ans.style.display='block';btn.textContent='Hide solution ▲';}
+}
+</script>
