@@ -1,0 +1,283 @@
+
+<style>
+  :root { --tab-active: var(--color-background-primary); }
+  .tabs { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:0; padding:0 0 0 0; }
+  .tab-btn {
+    padding:7px 14px; font-size:13px; font-weight:500; border:0.5px solid var(--color-border-secondary);
+    border-bottom:none; border-radius:8px 8px 0 0; background:var(--color-background-secondary);
+    color:var(--color-text-secondary); cursor:pointer; transition:background .15s,color .15s;
+  }
+  .tab-btn.active { background:var(--color-background-primary); color:var(--color-text-primary); border-color:var(--color-border-primary); }
+  .tab-content { display:none; border:0.5px solid var(--color-border-primary); border-radius:0 8px 8px 8px; padding:20px 22px; background:var(--color-background-primary); }
+  .tab-content.active { display:block; }
+  h3 { font-size:15px; font-weight:500; margin:18px 0 8px; color:var(--color-text-primary); }
+  h3:first-child { margin-top:0; }
+  .pill { display:inline-block; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:500; margin:3px 3px 3px 0; }
+  .pill-blue { background:var(--color-background-info); color:var(--color-text-info); }
+  .pill-amber { background:#FAEEDA; color:#633806; }
+  .pill-teal { background:#E1F5EE; color:#085041; }
+  .pill-red { background:#FCEBEB; color:#791F1F; }
+  .q-list { list-style:none; padding:0; margin:0; }
+  .q-list li { padding:8px 12px; border-left:3px solid var(--color-border-info); margin-bottom:8px; font-size:13.5px; background:var(--color-background-secondary); border-radius:0 6px 6px 0; color:var(--color-text-primary); }
+  .formula-box { background:var(--color-background-secondary); border:0.5px solid var(--color-border-secondary); border-radius:8px; padding:12px 16px; margin:8px 0; font-family:var(--font-mono); font-size:13px; color:var(--color-text-primary); }
+  .formula-label { font-family:var(--font-sans); font-size:12px; color:var(--color-text-secondary); margin-bottom:4px; font-weight:500; }
+  .num-box { background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); border-radius:8px; padding:14px 16px; margin:10px 0; }
+  .num-box .problem { font-size:13.5px; color:var(--color-text-primary); margin-bottom:8px; font-weight:500; }
+  .num-box .solution { font-size:13px; color:var(--color-text-secondary); line-height:1.7; }
+  .sol-step { padding:4px 0; border-bottom:0.5px solid var(--color-border-tertiary); }
+  .sol-step:last-child { border-bottom:none; }
+  .badge { font-size:11px; font-weight:500; padding:2px 8px; border-radius:4px; margin-left:8px; background:var(--color-background-warning); color:var(--color-text-warning); }
+  .concept-row { display:flex; gap:10px; align-items:flex-start; padding:8px 0; border-bottom:0.5px solid var(--color-border-tertiary); font-size:13.5px; }
+  .concept-row:last-child { border-bottom:none; }
+  .concept-term { font-weight:500; min-width:160px; color:var(--color-text-primary); flex-shrink:0; }
+  .concept-def { color:var(--color-text-secondary); line-height:1.6; }
+  .ans-btn { font-size:12px; padding:4px 10px; border:0.5px solid var(--color-border-secondary); border-radius:6px; background:transparent; color:var(--color-text-secondary); cursor:pointer; margin-top:8px; }
+  .answer { display:none; margin-top:8px; padding:10px; background:var(--color-background-secondary); border-radius:6px; font-size:13px; color:var(--color-text-primary); line-height:1.7; }
+</style>
+<h2 class="sr-only" style="position:absolute;left:-9999px">Force &
+        Equilibrium
+        Systems - Study Guide for Engineers</h2>
+<div style="padding:4px 0 14px">
+  <span style="font-size:14px;font-weight:500;color:var(--color-text-primary)">Rigid Body Equilibrium</span>
+  <span style="font-size:13px;color:var(--color-text-secondary);margin-left:8px">Mechanics — Engineering</span>
+</div>
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('tq')">📋 Top Questions</button>
+  <button class="tab-btn" onclick="showTab('tc')">💡 Concepts</button>
+  <button class="tab-btn" onclick="showTab('tf')">📐 Formulas</button>
+  <button class="tab-btn" onclick="showTab('tn')">🔢 Numericals</button>
+  <button class="tab-btn" onclick="showTab('tl')">⚖️ Lami's Theorem</button>
+</div>
+
+<!-- TAB 1: Top Questions -->
+<div class="tab-content active" id="tq">
+  <h3>Most asked by teachers</h3>
+  <div style="margin-bottom:6px">
+    <span class="pill pill-red">Very Frequent</span>
+    <span class="pill pill-amber">Frequently Asked</span>
+    <span class="pill pill-blue">Conceptual</span>
+  </div>
+  <ul class="q-list">
+    <li><span class="pill pill-red">Very Frequent</span> State and explain the conditions of equilibrium for a coplanar force system.</li>
+    <li><span class="pill pill-red">Very Frequent</span> What is Lami's Theorem? State its conditions and derive it.</li>
+    <li><span class="pill pill-red">Very Frequent</span> Find the resultant of a coplanar concurrent force system using the analytical method.</li>
+    <li><span class="pill pill-amber">Frequently Asked</span> Differentiate between concurrent and non-concurrent force systems with examples.</li>
+    <li><span class="pill pill-amber">Frequently Asked</span> Define moment of a force. State Varignon's theorem and prove it.</li>
+    <li><span class="pill pill-amber">Frequently Asked</span> What is a couple? Show that the moment of a couple is constant about any point.</li>
+    <li><span class="pill pill-amber">Frequently Asked</span> Draw and explain the Free Body Diagram (FBD) of a body resting on a surface.</li>
+    <li><span class="pill pill-amber">Frequently Asked</span> Explain equilibrium of a rigid body in 3D space. Write all six equations of equilibrium.</li>
+    <li><span class="pill pill-blue">Conceptual</span> What is the difference between a force and a couple? Can a couple be replaced by a single force?</li>
+    <li><span class="pill pill-blue">Conceptual</span> What are components of a force in space? Explain direction cosines.</li>
+    <li><span class="pill pill-blue">Conceptual</span> What is the principle of transmissibility? Where does it apply?</li>
+    <li><span class="pill pill-blue">Conceptual</span> Explain the concept of resultant force and equilibrant force.</li>
+  </ul>
+</div>
+
+<!-- TAB 2: Concepts -->
+<div class="tab-content" id="tc">
+  <h3>Core concepts</h3>
+  <div>
+    <div class="concept-row">
+      <div class="concept-term">Rigid Body</div>
+      <div class="concept-def">A body in which the distance between any two particles remains constant under the action of forces. Deformation is neglected.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Equilibrium</div>
+      <div class="concept-def">A body is in equilibrium when the net force AND net moment about any point are both zero. Body remains at rest or moves with constant velocity.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Concurrent Forces</div>
+      <div class="concept-def">All forces pass through a single common point. Their resultant is found by vector addition. Moment condition is automatically satisfied.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Coplanar Forces</div>
+      <div class="concept-def">All forces lie in the same plane (usually XY). Three equilibrium equations apply: ΣFx=0, ΣFy=0, ΣM=0.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Resultant Force</div>
+      <div class="concept-def">A single force that produces the same effect as all given forces combined. R = √(ΣFx² + ΣFy²), angle θ = tan⁻¹(ΣFy / ΣFx).</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Moment of a Force</div>
+      <div class="concept-def">Tendency of a force to cause rotation about a point. M = F × d, where d is the perpendicular distance from the point to the line of action.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Varignon's Theorem</div>
+      <div class="concept-def">The moment of a resultant force about any point equals the algebraic sum of moments of individual component forces about the same point.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Couple</div>
+      <div class="concept-def">Two equal, opposite, parallel, non-collinear forces. Net force = 0, but moment ≠ 0. Moment = F × d (always constant about any point).</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Free Body Diagram (FBD)</div>
+      <div class="concept-def">A diagram showing the body isolated from its surroundings with all external forces (applied loads + reactions) acting on it clearly labeled.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Components in Space (3D)</div>
+      <div class="concept-def">Force F has components Fx = F·cosα, Fy = F·cosβ, Fz = F·cosγ where α, β, γ are angles with X, Y, Z axes. cos²α + cos²β + cos²γ = 1.</div>
+    </div>
+    <div class="concept-row">
+      <div class="concept-term">Direction Cosines</div>
+      <div class="concept-def">l = cosα, m = cosβ, n = cosγ. Unit vector: λ̂ = (l î + m ĵ + n k̂). Always satisfies l² + m² + n² = 1.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 3: Formulas -->
+<div class="tab-content" id="tf">
+  <h3>2D Coplanar System</h3>
+  <div class="formula-label">Resultant magnitude and direction</div>
+  <div class="formula-box">R = √[ (ΣFx)² + (ΣFy)² ]&nbsp;&nbsp;&nbsp;&nbsp;θ = tan⁻¹(ΣFy / ΣFx)</div>
+  <div class="formula-label">Equations of equilibrium (coplanar)</div>
+  <div class="formula-box">ΣFx = 0 &nbsp;|&nbsp; ΣFy = 0 &nbsp;|&nbsp; ΣM_A = 0</div>
+  <div class="formula-label">Moment of a force about point O</div>
+  <div class="formula-box">M = F × d &nbsp;(d = perpendicular distance)</div>
+  <div class="formula-label">Couple moment</div>
+  <div class="formula-box">C = F × d &nbsp;(constant everywhere in the plane)</div>
+
+  <h3>3D Space Forces</h3>
+  <div class="formula-label">Force components in 3D</div>
+  <div class="formula-box">Fx = F·cosα &nbsp;|&nbsp; Fy = F·cosβ &nbsp;|&nbsp; Fz = F·cosγ</div>
+  <div class="formula-label">Direction cosine identity</div>
+  <div class="formula-box">cos²α + cos²β + cos²γ = 1</div>
+  <div class="formula-label">Resultant in 3D</div>
+  <div class="formula-box">R = √(Fx² + Fy² + Fz²)</div>
+  <div class="formula-label">6 Equations of Equilibrium (3D rigid body)</div>
+  <div class="formula-box">ΣFx=0 &nbsp;ΣFy=0 &nbsp;ΣFz=0 &nbsp;|&nbsp; ΣMx=0 &nbsp;ΣMy=0 &nbsp;ΣMz=0</div>
+
+  <h3>Lami's Theorem</h3>
+  <div class="formula-label">For 3 concurrent coplanar forces in equilibrium</div>
+  <div class="formula-box">F₁/sin α₁ = F₂/sin α₂ = F₃/sin α₃</div>
+  <div style="font-size:12px;color:var(--color-text-secondary);margin-top:4px">α₁, α₂, α₃ = angles OPPOSITE to forces F₁, F₂, F₃ respectively</div>
+
+  <h3>Varignon's Theorem</h3>
+  <div class="formula-box">M_R (about O) = Σ(M_i about O) = F₁d₁ ± F₂d₂ ± ...</div>
+</div>
+
+<!-- TAB 4: Numericals -->
+<div class="tab-content" id="tn">
+  <h3>Example solved problems</h3>
+
+  <div class="num-box">
+    <div class="problem">Q1. Two forces 100 N (at 30°) and 150 N (at 60°) act at a point. Find the resultant.</div>
+    <button class="ans-btn" onclick="toggleAns(this)">Show solution ▾</button>
+    <div class="answer">
+      <div class="sol-step"><b>ΣFx</b> = 100 cos30° + 150 cos60° = 100(0.866) + 150(0.5) = 86.6 + 75 = <b>161.6 N</b></div>
+      <div class="sol-step"><b>ΣFy</b> = 100 sin30° + 150 sin60° = 100(0.5) + 150(0.866) = 50 + 129.9 = <b>179.9 N</b></div>
+      <div class="sol-step"><b>R</b> = √(161.6² + 179.9²) = √(26114 + 32364) = √58478 = <b>241.8 N</b></div>
+      <div class="sol-step"><b>θ</b> = tan⁻¹(179.9/161.6) = tan⁻¹(1.113) = <b>48.1° with X-axis</b></div>
+    </div>
+  </div>
+
+  <div class="num-box">
+    <div class="problem">Q2. A beam AB of 6 m is simply supported at A and B. A point load of 12 kN acts at 2 m from A. Find support reactions.</div>
+    <button class="ans-btn" onclick="toggleAns(this)">Show solution ▾</button>
+    <div class="answer">
+      <div class="sol-step">Taking moment about A: R_B × 6 = 12 × 2</div>
+      <div class="sol-step">R_B = 24/6 = <b>4 kN</b></div>
+      <div class="sol-step">ΣFy = 0: R_A + R_B = 12 → R_A = 12 − 4 = <b>8 kN</b></div>
+      <div class="sol-step">Check ΣM_B = R_A×6 − 12×4 = 48 − 48 = 0 ✓</div>
+    </div>
+  </div>
+
+  <div class="num-box">
+    <div class="problem">Q3. A force of 200 N acts along a line making angles α=60°, β=45° with X and Y axes. Find components and angle with Z-axis.</div>
+    <button class="ans-btn" onclick="toggleAns(this)">Show solution ▾</button>
+    <div class="answer">
+      <div class="sol-step">cos²α + cos²β + cos²γ = 1 → cos²60° + cos²45° + cos²γ = 1</div>
+      <div class="sol-step">0.25 + 0.5 + cos²γ = 1 → cos²γ = 0.25 → cosγ = 0.5 → <b>γ = 60°</b></div>
+      <div class="sol-step">Fx = 200 × cos60° = <b>100 N</b></div>
+      <div class="sol-step">Fy = 200 × cos45° = <b>141.4 N</b></div>
+      <div class="sol-step">Fz = 200 × cos60° = <b>100 N</b></div>
+    </div>
+  </div>
+
+  <div class="num-box">
+    <div class="problem">Q4. Three concurrent forces 300 N, 400 N, 500 N are in equilibrium. Find the angles between the forces using Lami's Theorem.</div>
+    <button class="ans-btn" onclick="toggleAns(this)">Show solution ▾</button>
+    <div class="answer">
+      <div class="sol-step">By Lami's: 300/sinα₁ = 400/sinα₂ = 500/sinα₃ and α₁+α₂+α₃ = 360°</div>
+      <div class="sol-step">Let k = common ratio. sinα₁ = 300/k, sinα₂ = 400/k, sinα₃ = 500/k</div>
+      <div class="sol-step">This is a 3-4-5 right triangle set → α₃ = 180° − 90° = <b>angle opposite 500 N ≈ 180°</b></div>
+      <div class="sol-step">sinα₁ = 300/500 × sin(opposite) → Using sine rule: α₁ ≈ <b>126.87°</b>, α₂ ≈ <b>143.13°</b>, α₃ ≈ <b>90°</b></div>
+      <div class="sol-step">Check: 126.87 + 143.13 + 90 = 360° ✓</div>
+    </div>
+  </div>
+
+  <div class="num-box">
+    <div class="problem">Q5. A force of 60 N acts at point (3, 4) m. Find its moment about the origin O.</div>
+    <button class="ans-btn" onclick="toggleAns(this)">Show solution ▾</button>
+    <div class="answer">
+      <div class="sol-step">Perpendicular distance from O = √(3² + 4²) = √25 = 5 m</div>
+      <div class="sol-step">If the 60 N force acts at the point along a specific direction, M = F × d_perp</div>
+      <div class="sol-step">Assuming force acts perpendicular to the position vector:</div>
+      <div class="sol-step">M = 60 × 5 = <b>300 N·m</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 5: Lami's Theorem -->
+<div class="tab-content" id="tl">
+  <h3>Lami's Theorem — complete breakdown</h3>
+  <div class="concept-row">
+    <div class="concept-term">Statement</div>
+    <div class="concept-def">If three concurrent coplanar forces keep a body in equilibrium, each force is proportional to the sine of the angle between the other two forces.</div>
+  </div>
+  <div class="concept-row">
+    <div class="concept-term">Formula</div>
+    <div class="concept-def" style="font-family:var(--font-mono);font-size:13px">F₁/sinα₁ = F₂/sinα₂ = F₃/sinα₃</div>
+  </div>
+  <div class="concept-row">
+    <div class="concept-term">Key condition</div>
+    <div class="concept-def">Only 3 forces, all concurrent, all coplanar, and the body must be in equilibrium. α₁ + α₂ + α₃ = 360°</div>
+  </div>
+  <div class="concept-row">
+    <div class="concept-term">Important note</div>
+    <div class="concept-def">Each angle is the angle OPPOSITE to the respective force (i.e., the angle between the other two forces), NOT the angle between that force and another.</div>
+  </div>
+  <div class="concept-row">
+    <div class="concept-term">Proof basis</div>
+    <div class="concept-def">Derived from the Sine Rule of a triangle formed by drawing the three force vectors head-to-tail (closed triangle of forces in equilibrium).</div>
+  </div>
+
+  <h3>Typical exam numerical (Lami's)</h3>
+  <div class="num-box">
+    <div class="problem">A 500 N weight hangs from two strings making 30° and 45° with the vertical. Find tensions T₁ and T₂.</div>
+    <button class="ans-btn" onclick="toggleAns(this)">Show solution ▾</button>
+    <div class="answer">
+      <div class="sol-step">Three forces: T₁ (along string 1), T₂ (along string 2), W=500 N (downward)</div>
+      <div class="sol-step">Angle between T₂ and W = 180°−45° = 135°, Angle between T₁ and W = 180°−30° = 150°</div>
+      <div class="sol-step">Angle between T₁ and T₂ = 360°−135°−150° = 75°</div>
+      <div class="sol-step">By Lami's: T₁/sin135° = T₂/sin150° = 500/sin75°</div>
+      <div class="sol-step">500/sin75° = 500/0.9659 = 517.6</div>
+      <div class="sol-step">T₁ = 517.6 × sin135° = 517.6 × 0.7071 = <b>366 N</b></div>
+      <div class="sol-step">T₂ = 517.6 × sin150° = 517.6 × 0.5 = <b>258.8 N</b></div>
+    </div>
+  </div>
+
+  <h3>Common mistakes to avoid</h3>
+  <ul class="q-list">
+    <li>Using Lami's for more than 3 forces — it only applies to exactly 3 concurrent forces.</li>
+    <li>Taking the angle between a force and an adjacent force instead of the angle opposite to it.</li>
+    <li>Forgetting that the three angles must sum to 360°, not 180°.</li>
+    <li>Not converting the weight/load into the correct force direction when drawing FBD.</li>
+  </ul>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+function toggleAns(btn) {
+  const ans = btn.nextElementSibling;
+  if (ans.style.display === 'block') {
+    ans.style.display = 'none'; btn.textContent = 'Show solution ▾';
+  } else {
+    ans.style.display = 'block'; btn.textContent = 'Hide solution ▲';
+  }
+}
+</script>
